@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import Hero from '@/components/Hero.astro';
+import About from '@/components/About.astro';
+import SectionBar from '@/components/SectionBar.astro';
+import ExperienceItem from '@/components/ExperienceItem.astro';
+import EducationItem from '@/components/EducationItem.astro';
+import Contact from '@/components/Contact.astro';
+import Footer from '@/components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const experiences = (await getCollection('experience')).sort((a, b) => a.data.order - b.data.order);
+const education = (await getCollection('education')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout>
+  <Nav />
+  <Hero />
+  <About />
+
+  <!-- Experience -->
+  <section id="experience" class="border-b-2 border-ink">
+    <div class="max-w-site mx-auto px-[clamp(1.2rem,4vw,4rem)]">
+      <SectionBar num="02" title="Experience" count={`${experiences.length} positions`} />
+      {
+        experiences.map((entry, i) => {
+          const { body, data } = entry;
+          return (
+            <ExperienceItem
+              company={data.company}
+              period={data.period}
+              location={data.location}
+              role={data.role}
+              tags={data.tags}
+              body={body}
+              last={i === experiences.length - 1}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="border-b-2 border-ink">
+    <div class="max-w-site mx-auto px-[clamp(1.2rem,4vw,4rem)]">
+      <SectionBar num="03" title="Education" />
+      {
+        education.map((entry, i) => (
+          <EducationItem
+            period={entry.data.period}
+            institution={entry.data.institution}
+            degree={entry.data.degree}
+            last={i === education.length - 1}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <Contact />
+  <Footer />
+</BaseLayout>

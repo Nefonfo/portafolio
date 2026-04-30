@@ -1,0 +1,43 @@
+---
+import { site } from '@/config/site';
+
+const headlineParts = site.contact.headline.split(site.contact.accentWords);
+---
+
+<section id="contact" class="border-b-2 border-ink">
+  <div class="max-w-site mx-auto px-[clamp(1.2rem,4vw,4rem)]">
+    <div class="py-16 pb-20">
+      <p class="reveal text-tag tracking-[0.15em] uppercase text-muted mb-6">04 — Contact</p>
+      <h2
+        class="reveal font-mono font-bold leading-[1.0] tracking-[-0.02em] uppercase mb-12"
+        style="font-size: clamp(2rem, 4.5vw, 4.5rem)"
+      >
+        {headlineParts[0]}<span class="text-accent">{site.contact.accentWords}</span>
+      </h2>
+      <div class="reveal flex flex-col md:flex-row">
+        <a
+          href={site.contact.linkedin}
+          target="_blank"
+          rel="noopener"
+          class="contact-link text-sm tracking-[0.12em] uppercase px-[1.8rem] py-[0.9rem] border-2 border-ink text-ink -mr-[2px] hover:bg-ink hover:text-bg hover:z-10 hover:relative transition-colors duration-100"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href={`mailto:${site.contact.email}`}
+          class="contact-link text-sm tracking-[0.12em] uppercase px-[1.8rem] py-[0.9rem] border-2 border-ink text-ink -mr-[2px] hover:bg-ink hover:text-bg hover:z-10 hover:relative transition-colors duration-100"
+        >
+          Email ↗
+        </a>
+        <a
+          href={site.contact.github}
+          target="_blank"
+          rel="noopener"
+          class="contact-link text-sm tracking-[0.12em] uppercase px-[1.8rem] py-[0.9rem] border-2 border-ink text-ink hover:bg-ink hover:text-bg hover:z-10 hover:relative transition-colors duration-100"
+        >
+          GitHub ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

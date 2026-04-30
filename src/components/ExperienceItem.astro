@@ -1,0 +1,40 @@
+---
+interface Props {
+  company: string;
+  period: string;
+  location: string;
+  role: string;
+  tags: string[];
+  body: string;
+  last?: boolean;
+}
+const { company, period, location, role, tags, body, last = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    'reveal grid grid-cols-1 md:grid-cols-[220px_1fr]',
+    !last && 'border-b border-border-soft',
+  ]}
+>
+  <div
+    class="flex flex-col gap-[0.4rem] py-6 pr-8 md:py-[2.2rem] md:border-r-2 border-ink border-b md:border-b-0"
+  >
+    <p class="text-base font-bold tracking-[0.05em] uppercase">{company}</p>
+    <p class="text-tag text-muted tracking-[0.06em]">{period}</p>
+    <p class="text-tag text-muted">{location}</p>
+  </div>
+  <div class="py-6 md:py-[2.2rem] md:pl-10">
+    <p class="text-tag font-bold tracking-[0.1em] uppercase text-accent mb-[0.8rem]">{role}</p>
+    <p class="text-body text-mid leading-[1.75] max-w-[60ch] mb-4" set:html={body} />
+    <div class="flex flex-wrap gap-[0.35rem]">
+      {
+        tags.map((tag) => (
+          <span class="text-[0.62rem] tracking-[0.07em] text-muted px-[0.5rem] py-[0.15rem] border border-border-dim">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>

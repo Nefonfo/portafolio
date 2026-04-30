@@ -1,0 +1,14 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  count?: string;
+}
+const { num, title, count } = Astro.props;
+---
+
+<div class="border-b-2 border-ink py-[0.9rem] flex items-baseline gap-6 reveal">
+  <span class="text-tag text-accent tracking-[0.1em]">{num}</span>
+  <span class="text-tag font-bold tracking-[0.15em] uppercase text-ink">{title}</span>
+  {count && <span class="ml-auto text-tag text-muted">{count}</span>}
+</div>

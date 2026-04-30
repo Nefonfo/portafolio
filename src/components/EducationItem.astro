@@ -1,0 +1,26 @@
+---
+interface Props {
+  period: string;
+  institution: string;
+  degree: string;
+  last?: boolean;
+}
+const { period, institution, degree, last = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    'reveal grid grid-cols-1 md:grid-cols-[220px_1fr]',
+    !last && 'border-b border-border-soft',
+  ]}
+>
+  <div
+    class="text-tag text-muted tracking-[0.06em] py-6 md:py-8 md:pr-8 md:border-r-2 border-ink border-b md:border-b-0"
+  >
+    {period}
+  </div>
+  <div class="py-6 md:py-8 md:pl-10">
+    <p class="text-body font-bold tracking-[0.04em] uppercase mb-[0.3rem]">{institution}</p>
+    <p class="text-sm text-mid tracking-[0.04em]">{degree}</p>
+  </div>
+</div>

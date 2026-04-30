@@ -1,0 +1,36 @@
+---
+import { site } from '@/config/site';
+---
+
+<section id="hero" class="border-b-2 border-ink py-20 pb-16">
+  <div class="max-w-site mx-auto px-[clamp(1.2rem,4vw,4rem)]">
+    <p class="text-tag tracking-[0.15em] uppercase text-accent mb-8">{site.title}</p>
+    <h1
+      class="font-mono font-bold leading-[0.92] tracking-[-0.03em] uppercase mb-12"
+      style="font-size: clamp(3.5rem, 7vw, 7rem)"
+    >
+      <span class="block">{site.nameFirst}</span>
+      <span class="block" style="padding-left: clamp(2rem, 6vw, 6rem)">{site.nameLast}</span>
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-muted pt-8 mt-4">
+      <p class="text-body text-mid max-w-[50ch] leading-[1.75]">
+        Backend engineer specializing in Python and ERP systems. Nearly three years at Odoo — from
+        upgrade services in Mexico City to R&amp;D accounting in Belgium.
+      </p>
+      <div class="flex flex-col gap-2 md:items-end">
+        <p class="text-tag tracking-[0.08em] text-muted uppercase">
+          <strong class="text-ink font-bold">Location</strong> — {site.location}
+        </p>
+        <p class="text-tag tracking-[0.08em] text-muted uppercase">
+          <strong class="text-ink font-bold">Work</strong> — {site.company}
+        </p>
+        <p class="text-tag tracking-[0.08em] text-muted uppercase">
+          <strong class="text-ink font-bold">Stack</strong> — {site.stack}
+        </p>
+        <p class="text-tag tracking-[0.08em] text-muted uppercase">
+          <strong class="text-ink font-bold">Status</strong> — {site.status}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

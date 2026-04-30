@@ -1,0 +1,43 @@
+---
+import { site } from '@/config/site';
+---
+
+<nav
+  class="border-b-2 border-ink px-[clamp(1.2rem,4vw,4rem)] flex justify-between items-stretch sticky top-0 z-[100] bg-bg"
+>
+  <div
+    class="font-mono text-base font-bold tracking-[0.05em] py-[1.1rem] border-r-2 border-ink pr-8"
+  >
+    {site.nameShort}
+  </div>
+  <ul class="hidden md:flex list-none">
+    <li class="border-l-2 border-ink">
+      <a
+        href="#about"
+        class="block px-[1.4rem] py-[1.1rem] text-sm tracking-[0.1em] uppercase text-mid hover:bg-ink hover:text-bg transition-colors duration-100"
+        >About</a
+      >
+    </li>
+    <li class="border-l-2 border-ink">
+      <a
+        href="#experience"
+        class="block px-[1.4rem] py-[1.1rem] text-sm tracking-[0.1em] uppercase text-mid hover:bg-ink hover:text-bg transition-colors duration-100"
+        >Experience</a
+      >
+    </li>
+    <li class="border-l-2 border-ink">
+      <a
+        href="#education"
+        class="block px-[1.4rem] py-[1.1rem] text-sm tracking-[0.1em] uppercase text-mid hover:bg-ink hover:text-bg transition-colors duration-100"
+        >Education</a
+      >
+    </li>
+    <li class="border-l-2 border-ink">
+      <a
+        href="#contact"
+        class="block px-[1.4rem] py-[1.1rem] text-sm tracking-[0.1em] uppercase text-mid hover:bg-ink hover:text-bg transition-colors duration-100"
+        >Contact</a
+      >
+    </li>
+  </ul>
+</nav>
